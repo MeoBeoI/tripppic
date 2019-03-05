@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+
 import { Tour } from '../tour';
 import { ToursService } from '../tours.service';
 
@@ -11,16 +14,29 @@ export class TourDetailComponent implements OnInit {
 
   tour: Tour;
 
-  constructor(private toursService: ToursService) { }
+  constructor(
+    private toursService: ToursService,
+    private route: ActivatedRoute,
+    private location: Location,
+  ) { }
 
   ngOnInit() {
-    // TODO: check this
-    this.getTourDetail(`asdasdasd`);
+    this.getTourDetail();
   }
 
-  getTourDetail(tourId): void {
+  getTourDetail(): void {
+    const tourId = this.route.snapshot.paramMap.get('id');
     this.toursService.getTourDetail(tourId)
-      // .subscribe(tour => this.tour = tour);
+      .subscribe(tour => this.tour = tour);
+  }
+
+  updateTourDetail(): void {
+    this.toursService.updateTourDetail(this.tour)
+      .subscribe(() => this.goBack());
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
 }

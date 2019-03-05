@@ -39,20 +39,18 @@ export class ToursService {
     );
   }
 
-  getTourDetail(tourId): Observable<Tour[]> {
-    return this.http.get<Tour[]>(`http://localhost:8080/api/tours/{tourId}`)
+  getTourDetail(tourId: string): Observable<Tour> {
+    return this.http.get<Tour>(`http://localhost:8080/api/tours/${tourId}`)
       .pipe(
         tap(_ => this.log('fetched tours')),
-        catchError(this.handleError('tours', []))
+        catchError(this.handleError<Tour>(`getTour id=${tourId}`))
       );
   }
 
-  /** GET hero by id. Will 404 if id not found */
-  // getHero(id: number): Observable<Tour> {
-  //   const url = `${this.toursUrl}/${id}`;
-  //   return this.http.get<Tour>(url).pipe(
-  //     tap(_ => this.log(`fetched hero id=${id}`)),
-  //     catchError(this.handleError<Tour>(`getHero id=${id}`))
+  // updateHero(hero: Hero): Observable<any> {
+  //   return this.http.put(this.toursUrl, hero, httpOptions).pipe(
+  //     tap(_ => this.log(`updated hero id=${hero.id}`)),
+  //     catchError(this.handleError<any>('updateHero'))
   //   );
   // }
 
@@ -80,14 +78,6 @@ export class ToursService {
   //   return this.http.delete<Tour>(url, httpOptions).pipe(
   //     tap(_ => this.log(`deleted hero id=${id}`)),
   //     catchError(this.handleError<Tour>('deleteHero'))
-  //   );
-  // }
-
-  // /** PUT: update the hero on the server */
-  // updateHero(hero: Hero): Observable<any> {
-  //   return this.http.put(this.toursUrl, hero, httpOptions).pipe(
-  //     tap(_ => this.log(`updated hero id=${hero.id}`)),
-  //     catchError(this.handleError<any>('updateHero'))
   //   );
   // }
 

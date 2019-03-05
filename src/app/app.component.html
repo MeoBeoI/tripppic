@@ -1,8 +1,82 @@
-<app-header [user]="user"></app-header>
-<div class="wrapper-app">
-  <router-outlet></router-outlet>
+<div class="wrapper">
+  <div class="sidebar" data-color="purple" data-image="assets/img/sidebar-5.jpg">
+    <!-- TODO: SIDEBAR COMPONENT -->
+    <div class="sidebar-wrapper">
+      <div class="logo">
+        <a href="tripppic.com" class="simple-text">
+          Tripppic
+        </a>
+      </div>
+
+      <ul class="nav">
+        <li>
+          <a [routerLink]="['/']">
+            <i class="pe-7s-note2"></i>
+            <p>Dashboard</p>
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/user']">
+            <i class="pe-7s-user"></i>
+            <p>User Profile</p>
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/tours']">
+            <i class="pe-7s-note2"></i>
+            <p>Tours</p>
+          </a>
+        </li>
+        <li>
+          <a [routerLink]="['/booking']">
+            <i class="pe-7s-note2"></i>
+            <p>Booking</p>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="main-panel">
+
+    <app-header [user]="user"></app-header>
+
+    <div class="content">
+      <div class="container-fluid">
+
+        <div class="wrapper-app">
+          <router-outlet></router-outlet>
+        </div>
+
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="container-fluid">
+        <nav class="pull-left">
+          <ul>
+            <li>
+              <a href="#">
+                Home
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Company
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Portfolio
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                Blog
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+  </div>
 </div>
-
-<footer class="footer">
-
-</footer>

@@ -17,10 +17,6 @@ export class TourListComponent implements OnInit {
     this.getTours();
   }
 
-  getTourDetail(tour: Tour) {
-    console.log(tour);
-  }
-
   getTours(): void {
     this.toursService.getTours()
       .subscribe(tours => this.tours = tours);
