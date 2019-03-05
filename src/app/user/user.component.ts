@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from './user.service';
+// import { UserService } from './user.service';
 import { User } from './user';
 
 
@@ -9,17 +9,20 @@ import { User } from './user';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
+
   user: User;
 
-  constructor( private userService: UserService ) { }
+  // constructor( private userService: UserService ) { }
+  constructor( ) { }
 
   ngOnInit() {
-    this.getUser();
+    // this.getUser();
   }
 
   getUser(): void {
-    this.userService.getUser()
-      .subscribe(user => this.user = user);
+    // TODO: Get user
+    // this.userService.getUser()
+      // .subscribe(user => this.user = user);
   }
 
 }

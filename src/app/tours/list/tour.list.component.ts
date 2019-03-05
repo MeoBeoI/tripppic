@@ -3,11 +3,11 @@ import { Tour } from '../tour';
 import { ToursService } from '../tours.service';
 
 @Component({
-  selector: 'app-list',
-  templateUrl: './list.component.html',
-  styleUrls: ['./list.component.scss']
+  selector: 'app-tour-list',
+  templateUrl: './tour.list.component.html',
+  styleUrls: ['./tour.list.component.scss']
 })
-export class ListComponent implements OnInit {
+export class TourListComponent implements OnInit {
 
   tours: Tour[];
 
@@ -15,6 +15,10 @@ export class ListComponent implements OnInit {
 
   ngOnInit() {
     this.getTours();
+  }
+
+  getTourDetail(tour: Tour) {
+    console.log(tour);
   }
 
   getTours(): void {

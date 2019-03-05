@@ -28,6 +28,23 @@ if (config.frontend == 'react'){
   distDir ='../../dist/' ;
  }
 
+
+// TODO: FIX THIS SHIT
+app.use(passport.initialize());
+
+app.get('/auth/google', passport.authenticate('google', {
+  scope: [ 'profile', '']
+}));
+
+app.get('/auth/google/callback',
+  passport.authenticate('google', {
+    failureRedirect: '/login'
+}), function (req, res) {
+  console.log("GOGGGOOOLEE OK")
+  // Successful authentication, redirect home.
+  res.redirect('/');
+});
+
 //
 app.use(express.static(path.join(__dirname, distDir)))
 app.use(/^((?!(api)).)*/, (req, res) => {
@@ -54,8 +71,6 @@ app.use(helmet());
 
 // enable CORS - Cross Origin Resource Sharing
 app.use(cors());
-
-app.use(passport.initialize());
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 

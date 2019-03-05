@@ -12,8 +12,8 @@
 
       <ul class="nav">
         <li>
-          <a href="dashboard.html">
-            <i class="pe-7s-graph"></i>
+          <a [routerLink]="['/']">
+            <i class="pe-7s-note2"></i>
             <p>Dashboard</p>
           </a>
         </li>
@@ -26,31 +26,13 @@
         <li class="active">
           <a [routerLink]="['/tours']">
             <i class="pe-7s-note2"></i>
-            <p>Tours</p>
+            <p>Tour</p>
           </a>
         </li>
         <li>
           <a [routerLink]="['/booking']">
             <i class="pe-7s-note2"></i>
             <p>Booking</p>
-          </a>
-        </li>
-        <li>
-          <a href="icons.html">
-            <i class="pe-7s-science"></i>
-            <p>Icons</p>
-          </a>
-        </li>
-        <li>
-          <a href="maps.html">
-            <i class="pe-7s-map-marker"></i>
-            <p>Maps</p>
-          </a>
-        </li>
-        <li>
-          <a href="notifications.html">
-            <i class="pe-7s-bell"></i>
-            <p>Notifications</p>
           </a>
         </li>
       </ul>
@@ -145,26 +127,19 @@
           <div class="col-md-12">
             <div class="card">
               <div class="content table-responsive table-full-width">
-                <app-list></app-list>
+                <app-tour-list></app-tour-list>
               </div>
             </div>
           </div>
-
         </div>
 
         <div class="row">
-          <div class="col-md-8">
+          <div class="col-md-12">
             <div class="card">
-              <div class="header">
-                <h4 class="title">Create Tour</h4>
-              </div>
-                <app-tour-create></app-tour-create>
-              </div>
+              <a [routerLink]="['/tours/create']">Create Tour</a>
             </div>
           </div>
-
         </div>
-
 
       </div>
 

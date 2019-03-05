@@ -39,7 +39,10 @@ const config = {
   mongo: {
     host: envVars.MONGO_HOST,
     port: envVars.MONGO_PORT
-  }
+  },
+  // TODO: REMOVE THIS
+  googleClientId: "727966050607-6fqjsd7k78q3bu536hrg767r55vt32b7.apps.googleusercontent.com",
+  googleClientSecret: "Bwh4jEIqRY6umdMQWkWl9I-m",
 };
 
 module.exports = config;

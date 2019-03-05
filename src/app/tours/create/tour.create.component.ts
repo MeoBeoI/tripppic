@@ -7,7 +7,7 @@ import { ToursService } from '../tours.service';
   templateUrl: './tour.create.component.html',
   styleUrls: ['./tour.create.component.scss']
 })
-export class CreateComponent implements OnInit {
+export class TourCreateComponent implements OnInit {
 
   tours: Tour[];
 

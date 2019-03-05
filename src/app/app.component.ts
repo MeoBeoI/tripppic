@@ -49,7 +49,7 @@ export class AppComponent implements OnInit {
     this.router.navigate([link]);
   }
 
-  ngOnDestroy() { 
+  ngOnDestroy() {
     if (this.userSubscription) {
       this.userSubscription.unsubscribe();
     }

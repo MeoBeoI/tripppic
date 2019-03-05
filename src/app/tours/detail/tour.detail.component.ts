@@ -3,7 +3,7 @@ import { Tour } from '../tour';
 import { ToursService } from '../tours.service';
 
 @Component({
-  selector: 'app-detail',
+  selector: 'app-tour-detail',
   templateUrl: './tour.detail.component.html',
   styleUrls: ['./tour.detail.component.scss']
 })

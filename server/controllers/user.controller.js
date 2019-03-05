@@ -25,7 +25,6 @@ async function insert(user) {
   return await new User(user).save();
 }
 
-
 async function bookTour(booking) {
   return await User.findByIdAndUpdate(booking.user._id, {
     $push: { booking: booking }

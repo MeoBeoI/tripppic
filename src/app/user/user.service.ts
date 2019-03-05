@@ -17,9 +17,7 @@ const httpOptions = {
 export class UserService {
 
 
-  constructor(
-    private http: HttpClient
-  ) { }
+  constructor( private http: HttpClient ) { }
 
   getUser(): Observable<User> {
     return;
@@ -30,14 +28,6 @@ export class UserService {
     //   );
   }
 
-  /** GET hero by id. Will 404 if id not found */
-  // getHero(id: number): Observable<Tour> {
-  //   const url = `${this.toursUrl}/${id}`;
-  //   return this.http.get<Tour>(url).pipe(
-  //     tap(_ => this.log(`fetched hero id=${id}`)),
-  //     catchError(this.handleError<Tour>(`getHero id=${id}`))
-  //   );
-  // }
 
 
   private handleError<T>(operation = 'operation', result?: T) {

@@ -7,7 +7,7 @@
     <th>Categories</th>
   </thead>
   <tbody>
-    <tr *ngFor="let tour of tours">
+    <tr *ngFor="let tour of tours" routerLink="detail/{{tour._id}}">
       <td>{{tour._id}}</td>
       <td>{{tour.title}}</td>
       <td>{{tour.price}}</td>
