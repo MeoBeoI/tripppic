@@ -3,6 +3,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FormsModule } from '@angular/forms'
 
 import { SharedModule } from './shared/shared.module';
 import { AuthModule } from './auth/auth.module';
@@ -30,6 +31,7 @@ import { HomeComponent } from './home/home.component';
     BrowserAnimationsModule,
     HttpClientModule,
     RouterModule,
+    FormsModule,
     SharedModule,
     AuthModule,
     AdminModule,

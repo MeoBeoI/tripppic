@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { ToursRoutingModule } from './tours-routing.module';
 import { ToursComponent } from './tours.component';
 import { TourListComponent } from './list/tour.list.component';
@@ -16,6 +17,7 @@ import { TourDetailComponent } from './detail/tour.detail.component';
   imports: [
     CommonModule,
     ToursRoutingModule,
+    FormsModule,
   ],
   providers: [
 

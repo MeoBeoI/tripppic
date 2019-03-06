@@ -16,43 +16,48 @@ const httpOptions = {
 
 export class ToursService {
 
-  private toursUrl = 'api/tours';  // URL to web api
+  private toursAPIUrl = 'api/tours';
 
   constructor(
     private http: HttpClient
   ) { }
 
-  /** GET tours from the server */
   getTours(): Observable<Tour[]> {
-    return this.http.get<Tour[]>("http://localhost:8080/api/tours")
+    return this.http.get<Tour[]>(this.toursAPIUrl)
       .pipe(
         tap(_ => this.log('fetched tours')),
         catchError(this.handleError('tours', []))
       );
   }
 
-  createTour(tour: Tour): void {
-    this.http.post(this.toursUrl, tour, httpOptions).subscribe(
-      console.log
-      // TODO: DO SOMGTHING
-
+  createTour(tour: Tour): Observable<any> {
+    return this.http.post(this.toursAPIUrl, tour, httpOptions).pipe(
+      tap(_ => this.log(`create tour`)),
+      catchError(this.handleError<any>('createTour'))
     );
   }
 
   getTourDetail(tourId: string): Observable<Tour> {
-    return this.http.get<Tour>(`http://localhost:8080/api/tours/${tourId}`)
+    return this.http.get<Tour>(`${this.toursAPIUrl}/${tourId}`)
       .pipe(
         tap(_ => this.log('fetched tours')),
         catchError(this.handleError<Tour>(`getTour id=${tourId}`))
       );
   }
 
-  // updateHero(hero: Hero): Observable<any> {
-  //   return this.http.put(this.toursUrl, hero, httpOptions).pipe(
-  //     tap(_ => this.log(`updated hero id=${hero.id}`)),
-  //     catchError(this.handleError<any>('updateHero'))
-  //   );
-  // }
+  updateTourDetail(tour: Tour): Observable<any> {
+    return this.http.put(`${this.toursAPIUrl}/${tour._id}`, tour, httpOptions).pipe(
+      tap(_ => this.log(`updated tour id=${tour._id}`)),
+      catchError(this.handleError<any>('updateTour'))
+    );
+  }
+
+  deleteTour(tour: Tour): Observable<any> {
+    return this.http.delete(`${this.toursAPIUrl}/${tour._id}`,httpOptions).pipe(
+      tap(_ => this.log(`delete tour id=${tour._id}`)),
+      catchError(this.handleError<any>('deleteTour'))
+    );
+  }
 
   /* GET tours whose name contains search term */
   // searchTours(term: string): Observable<Tour[]> {
@@ -66,20 +71,6 @@ export class ToursService {
   //   );
   // }
 
-  //////// Save methods //////////
-
-
-
-  // /** DELETE: delete the hero from the server */
-  // deleteHero(tour: Tour | number): Observable<Tour> {
-  //   const id = typeof tour === 'number' ? tour : tour.id;
-  //   const url = `${this.toursUrl}/${id}`;
-
-  //   return this.http.delete<Tour>(url, httpOptions).pipe(
-  //     tap(_ => this.log(`deleted hero id=${id}`)),
-  //     catchError(this.handleError<Tour>('deleteHero'))
-  //   );
-  // }
 
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

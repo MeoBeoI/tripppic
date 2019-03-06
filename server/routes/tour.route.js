@@ -16,10 +16,12 @@ router.route('/')
   .get(asyncHandler(getAll))
 
 router.route('/:id')
-  .get(asyncHandler(findById));
+  .get(asyncHandler(findById))
+  .put(asyncHandler(updateTourDetail))
+  .delete(asyncHandler(deleteTour));
 
 router.route('/:id/book')
-  .post(asyncHandler(bookTour));
+  .post(asyncHandler(bookTour))
 
 async function create(req, res) {
 
@@ -38,6 +40,16 @@ async function getAll(req, res) {
 async function findById(req, res) {
   let tour = await tourCtrl.findById(req.params.id);
   res.json(tour);
+}
+
+async function updateTourDetail(req, res) {
+  let tour = await tourCtrl.updateTourDetail(req.body);
+  res.json(tour);
+}
+
+async function deleteTour(req, res) {
+  let tour = await tourCtrl.deleteTour(req.params.id);
+  res.json({ status: 200 });
 }
 
 async function bookTour(req, res) {

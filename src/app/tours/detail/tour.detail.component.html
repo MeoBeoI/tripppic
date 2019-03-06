@@ -1,11 +1,119 @@
 <div class="row">
-  <div class="col-md-8">
-    <div class="card">
-      {{tour.title}} -
-      {{tour.price}}
+  <div class="col-md-12">
+    <div class="card" *ngIf="tour">
+
+      <div class="clearfix"></div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label>ID</label>
+            <input type="text" class="form-control" placeholder="ID" id="id" [(ngModel)]="tour._id" #title="ngModel"
+              disabled>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label>Title</label>
+            <input type="text" class="form-control" placeholder="Title" id="title" [(ngModel)]="tour.title" #title="ngModel">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label>Categories</label>
+            <input type="text" class="form-control" placeholder="Phone" id="phone" [(ngModel)]="tour.categories">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label>Phone</label>
+            <input type="text" class="form-control" placeholder="Phone" id="phone" [(ngModel)]="tour.phone" value="0909090221">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label>Cities</label>
+            <input type="text" class="form-control" placeholder="City" id="city" [(ngModel)]="tour.cities">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label>Description</label>
+            <textarea rows="5" class="form-control" id="description" [(ngModel)]="tour.description" value="THIS IS DESCRIPTION"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label>Expect</label>
+            <textarea rows="5" class="form-control" id="expect" [(ngModel)]="tour.expect"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label>Image</label>
+            <input rows="5" class="form-control" id="image" [(ngModel)]="tour.image" value="https://cdn.tourradar.com/s3/tour/750x400/88881_38b57522.jpg">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label>Price</label>
+            <input rows="5" class="form-control" id="price" type="number" [(ngModel)]="tour.price" value="30">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label>Start time</label>
+            <input rows="5" class="form-control" id="startTime" [(ngModel)]="tour.startTime">
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label>End time</label>
+            <input rows="5" class="form-control" id="endTime" [(ngModel)]="tour.endTime">
+          </div>
+        </div>
+      </div>
+
     </div>
+
+    <div class="row">
+      <div class="col-md-2">
+        <button class="btn btn-info btn-fill" (click)="updateTourDetail()">Update</button>
+      </div>
+      <div class="col-md-2">
+        <button class="btn btn-warning btn-fill" (click)="deleteTour()">Delete</button>
+      </div>
+    </div>
+
   </div>
-
-  <button (click)="goBack()">go back</button>
 </div>
-

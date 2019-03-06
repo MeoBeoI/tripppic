@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
@@ -12,7 +12,7 @@ import { ToursService } from '../tours.service';
 })
 export class TourDetailComponent implements OnInit {
 
-  tour: Tour;
+  @Input() tour: Tour;
 
   constructor(
     private toursService: ToursService,
@@ -20,7 +20,7 @@ export class TourDetailComponent implements OnInit {
     private location: Location,
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getTourDetail();
   }
 
@@ -32,6 +32,11 @@ export class TourDetailComponent implements OnInit {
 
   updateTourDetail(): void {
     this.toursService.updateTourDetail(this.tour)
+      .subscribe(() => this.goBack());
+  }
+
+  deleteTour(): void {
+    this.toursService.deleteTour(this.tour)
       .subscribe(() => this.goBack());
   }
 

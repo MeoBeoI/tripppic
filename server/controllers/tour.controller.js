@@ -15,6 +15,7 @@ const tourSchema = Joi.object({
   endTime: Joi.date().required(),
   image: Joi.string().required(),
   price: Joi.number().required(),
+  isDeleted: Joi.boolean(),
 })
 
 
@@ -22,6 +23,8 @@ module.exports = {
   create,
   getAll,
   findById,
+  updateTourDetail,
+  deleteTour,
 }
 
 async function create(tour) {
@@ -31,9 +34,10 @@ async function create(tour) {
 
 async function getAll(query) {
 
-  let condition = { };
+  let condition = { isDeleted: false };
+
   if (query.cities) { condition.cities = query.cities }
-  if (query.categories) { condition.categories = query.categorines }
+  if (query.categories) { condition.categories = query.categories }
   if (query.price_min || query.price_max) { condition.price = {} }
   if (query.price_min) { condition.price.$gte = query.price_min }
   if (query.price_max) { condition.price.$lte = query.price_max }
@@ -43,4 +47,12 @@ async function getAll(query) {
 
 async function findById(id) {
   return await Tour.findById(id);
+}
+
+async function updateTourDetail(tour) {
+  return await Tour.findByIdAndUpdate(tour._id, tour);
+}
+
+async function deleteTour(tourId) {
+  return await Tour.findByIdAndUpdate(tourId, { isDeleted: true });
 }

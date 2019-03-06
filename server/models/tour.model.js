@@ -14,6 +14,7 @@ const TourSchema = new mongoose.Schema({
   cities: [{ type: String, required: true }],
   startTime: { type: Date, default: Date.now },
   endTime: { type: Date, default: Date.now },
+  isDeleted: { type: Boolean, default: false },
   createdAt: { type: Date, default: Date.now },
 }, {
     versionKey: false

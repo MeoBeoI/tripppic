@@ -11,4 +11,5 @@ export class Tour {
   endTime: string;
   image: string;
   price: number;
+  _id: any;
 }
