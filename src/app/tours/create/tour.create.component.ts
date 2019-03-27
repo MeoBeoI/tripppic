@@ -5,31 +5,27 @@ import { Tour } from '../tour';
 import { ToursService } from '../tours.service';
 
 @Component({
-  selector: 'app-tour-create',
-  templateUrl: './tour.create.component.html',
-  styleUrls: ['./tour.create.component.scss']
+  selector: "app-tour-create",
+  templateUrl: "./tour.create.component.html",
+  styleUrls: ["./tour.create.component.scss"]
 })
 export class TourCreateComponent implements OnInit {
+  @Input() tour: Tour = {
+    title: '',
+    phone: '0909090221',
+    price: 30,
+  };
 
-  @Input() tour: Tour;
+  constructor(private toursService: ToursService, private location: Location) {}
 
-  constructor(
-    private toursService: ToursService,
-    private location: Location,
-  ) { }
-
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   createTour(): void {
-    console.log("TOUR ", this.tour);
-
     this.toursService.createTour(this.tour)
-      // .subscribe(() => this.goBack());
+      .subscribe(tours => console.log('yoooo:' + tours));
   }
 
   goBack(): void {
     this.location.back();
   }
-
 }
