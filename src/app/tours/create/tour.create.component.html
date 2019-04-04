@@ -9,7 +9,7 @@
           <div class="col-md-12">
             <div class="form-group">
               <label>Title</label>
-              <input type="text" class="form-control" placeholder="Title" id="title" [(ngModel)]="tour.title" #title="ngModel">
+              <input type="text" class="form-control" placeholder="Title" id="title" [(ngModel)]="tour.title" name="title">
             </div>
           </div>
         </div>
@@ -18,7 +18,7 @@
           <div class="col-md-12">
             <div class="form-group">
               <label>Categories</label>
-              <input type="text" class="form-control" placeholder="Phone" id="phone" [(ngModel)]="tour.categories">
+              <input type="text" class="form-control" placeholder="Phone" id="phone" [(ngModel)]="tour.categories" name="categories">
             </div>
           </div>
         </div>
@@ -27,7 +27,7 @@
           <div class="col-md-12">
             <div class="form-group">
               <label>Phone</label>
-              <input type="text" class="form-control" placeholder="Phone" id="phone" [(ngModel)]="tour.phone" value="0909090221">
+              <input type="text" class="form-control" placeholder="Phone" id="phone" [(ngModel)]="tour.phone" name="phone">
             </div>
           </div>
         </div>
@@ -36,7 +36,7 @@
           <div class="col-md-12">
             <div class="form-group">
               <label>Cities</label>
-              <input type="text" class="form-control" placeholder="City" id="city" [(ngModel)]="tour.cities">
+              <input type="text" class="form-control" placeholder="City" id="city" [(ngModel)]="tour.cities" name="cities">
             </div>
           </div>
         </div>
@@ -45,7 +45,7 @@
           <div class="col-md-12">
             <div class="form-group">
               <label>Description</label>
-              <textarea rows="5" class="form-control" id="description" [(ngModel)]="tour.description" value="THIS IS DESCRIPTION"></textarea>
+              <textarea rows="5" class="form-control" id="description" [(ngModel)]="tour.description" name="description"></textarea>
             </div>
           </div>
         </div>
@@ -54,7 +54,7 @@
           <div class="col-md-12">
             <div class="form-group">
               <label>Expect</label>
-              <textarea rows="5" class="form-control" id="expect" [(ngModel)]="tour.expect"></textarea>
+              <textarea rows="5" class="form-control" id="expect" [(ngModel)]="tour.expect" name="expect"></textarea>
             </div>
           </div>
         </div>
@@ -63,7 +63,7 @@
           <div class="col-md-12">
             <div class="form-group">
               <label>Image</label>
-              <input rows="5" class="form-control" id="image" [(ngModel)]="tour.image" value="https://cdn.tourradar.com/s3/tour/750x400/88881_38b57522.jpg">
+              <input rows="5" class="form-control" id="image" [(ngModel)]="tour.image" name="image">
             </div>
           </div>
         </div>
@@ -72,7 +72,7 @@
           <div class="col-md-12">
             <div class="form-group">
               <label>Price</label>
-              <input rows="5" class="form-control" id="price" type="number" [(ngModel)]="tour.price" value="30">
+              <input rows="5" class="form-control" id="price" type="number" [(ngModel)]="tour.price" name="price">
             </div>
           </div>
         </div>
@@ -81,7 +81,7 @@
           <div class="col-md-12">
             <div class="form-group">
               <label>Start time</label>
-              <input rows="5" class="form-control" id="startTime" type="datetime-local" [(ngModel)]="tour.startTime">
+              <input rows="5" class="form-control" id="startTime" type="datetime-local" [(ngModel)]="tour.startTime" name="startTime">
             </div>
           </div>
         </div>
@@ -90,7 +90,7 @@
           <div class="col-md-12">
             <div class="form-group">
               <label>End time</label>
-              <input rows="5" class="form-control" id="endTime" type="datetime-local" [(ngModel)]="tour.endTime">
+              <input rows="5" class="form-control" id="endTime" type="datetime-local" [(ngModel)]="tour.endTime" name="endTime">
             </div>
           </div>
         </div>

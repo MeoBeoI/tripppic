@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Location } from '@angular/common';
+import { FormGroup, FormControl } from '@angular/forms';
 
 import { Tour } from '../tour';
 import { ToursService } from '../tours.service';
@@ -11,7 +12,21 @@ import { ToursService } from '../tours.service';
 })
 export class TourCreateComponent implements OnInit {
 
-  @Input() tour: Tour;
+  tour = new Tour(
+    "TITLE",
+    "description",
+    ["categories"],
+    "phone",
+    "address",
+    "location",
+    ["cities"],
+    "expect",
+    "2019-10-15T00:05:32.000Z",
+    "2019-10-15T00:07:32.000Z",
+    "image",
+    80,
+    "123"
+  )
 
   constructor(
     private toursService: ToursService,
@@ -19,13 +34,13 @@ export class TourCreateComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    // TODO:
+    delete this.tour._id;
   }
 
   createTour(): void {
-    console.log("TOUR ", this.tour);
-
     this.toursService.createTour(this.tour)
-      // .subscribe(() => this.goBack());
+      .subscribe(() => this.goBack());
   }
 
   goBack(): void {
