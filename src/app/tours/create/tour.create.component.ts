@@ -6,9 +6,9 @@ import { Tour } from '../tour';
 import { ToursService } from '../tours.service';
 
 @Component({
-  selector: 'app-tour-create',
-  templateUrl: './tour.create.component.html',
-  styleUrls: ['./tour.create.component.scss']
+  selector: "app-tour-create",
+  templateUrl: "./tour.create.component.html",
+  styleUrls: ["./tour.create.component.scss"]
 })
 export class TourCreateComponent implements OnInit {
 
@@ -46,5 +46,4 @@ export class TourCreateComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
-
 }

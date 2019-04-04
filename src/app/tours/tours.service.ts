@@ -30,10 +30,11 @@ export class ToursService {
       );
   }
 
-  createTour(tour: Tour): Observable<any> {
-    return this.http.post(this.toursAPIUrl, tour, httpOptions).pipe(
-      tap(_ => this.log(`create tour`)),
-      catchError(this.handleError<any>('createTour'))
+  createTour(tour: Tour): Observable<Tour> {
+    console.log('createTour');
+    return this.http.post<Tour>(this.toursAPIUrl, tour, httpOptions).pipe(
+      tap(newtour => this.log(`create tour: ` + newtour)),
+      catchError(this.handleError<any>("createTour"))
     );
   }
 
